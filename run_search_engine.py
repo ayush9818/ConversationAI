@@ -30,12 +30,13 @@ if __name__ == "__main__":
   parser.add_argument("--data-path", help='dataset path')
   parser.add_argument("--index-path", help='index file  path')
   parser.add_argument("--pretrained-weight-file", default=None, help='pretrained weights path')
+  parser.add_argument("--topk", default=5)
   args = parser.parse_args()
 
   data_path = args.data_path
   index_path = args.index_path
   pretrained_weight_file = args.pretrained_weight_file
-
+  top_k = int(args.topk)
 
   df = pd.read_csv(data_path)
   index = faiss.read_index(index_path)
@@ -51,9 +52,9 @@ if __name__ == "__main__":
       break
     
     query = input(f"Enter a Search Query to find movie recommendations\n")
-    results=search(df, query, top_k=5, index=index, model=model)
+    results=search(df, query, top_k=top_k, index=index, model=model)
     print("\n")
     for result in results:
-      print('\t',f"Title : {result['Title']} , Plot : {result['Plot']}")
+      print('\t',f"Title : {result['Title']}")
 
     print("\n")
