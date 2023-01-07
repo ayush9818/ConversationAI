@@ -7,17 +7,12 @@ The bot is trained on a wikipedia datasets of movie plots. Given any query about
 
 ## Installation
 
+Repository Setup
+
 ```bash
   git clone https://github.com/ayush9818/ConversationAI.git
   cd ConversationAI
-  python3 -m venv venv 
-  source venv/bin/activate
-  pip install -r requirements.txt
 ```
-
-
-    
-## Run Locally
 
 Download the model files in models directory and unzip the file
 
@@ -33,12 +28,33 @@ Download the dataset files in the dataset folder
 
 ```
 
+## Run using Python
+
+Virtual Environment Setup
+
+```bash
+  python3 -m venv venv 
+  source venv/bin/activate
+  pip install -r requirements.txt
+```
+
 Run the search engine 
+
 ```python
   python run_search_engine.py --data-path dataset/wiki_movie_plots_deduped.csv \
    --index-path dataset/search-model_v5_100k.index \
    --pretrained-weight-file models/search-model_v5_100k \
    --topk 2
 ```
+
+## Run using Docker 
+
+Build and run docker file
+
+```bash
+  docker build -t conversational_ai .
+  docker run -it conversational_ai
+```
+
 
 
