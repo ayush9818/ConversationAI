@@ -4,6 +4,8 @@ Semantic Search Based conversational AI
 
 The bot is trained on a wikipedia datasets of movie plots. Given any query about the movie plot, the bot will run the search queries to match with the closest plot and return the movie Titles.
 
+![alt text](https://github.com/ayush9818/ConversationAI/blob/main/images/Algo_flow.webp)
+
 ## Installation
 
 ```bash
