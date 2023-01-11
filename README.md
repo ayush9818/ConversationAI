@@ -59,6 +59,7 @@ Build and run docker file
 ## References
 - https://huggingface.co/microsoft/DialoGPT-medium?text=Hey+my+name+is+Thomas%21+How+are+you%3F
 - https://github.com/microsoft/DialoGPT
+- https://www.youtube.com/watch?v=-QH8fRhqFHM [ Basic Video for Transformers Understanding ]
 
 
 
