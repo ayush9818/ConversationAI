@@ -56,5 +56,10 @@ Build and run docker file
   docker run -it conversational_ai
 ```
 
+## References
+- https://huggingface.co/microsoft/DialoGPT-medium?text=Hey+my+name+is+Thomas%21+How+are+you%3F
+- https://github.com/microsoft/DialoGPT
+
+
 
 
