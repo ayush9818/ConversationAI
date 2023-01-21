@@ -54,11 +54,20 @@ Build and run docker file
   docker run -it conversational_ai
 ```
 
-## References
-- https://huggingface.co/microsoft/DialoGPT-medium?text=Hey+my+name+is+Thomas%21+How+are+you%3F
-- https://github.com/microsoft/DialoGPT
-- https://www.youtube.com/watch?v=-QH8fRhqFHM [ Basic Video for Transformers Understanding ]
+## Finetuning the Model 
 
+### Generating Synthetic Queries
+```bash
+  python generate_synthetic_query.py --data-path dataset/wiki_movie_plots_deduped.csv \
+  --query-save-path dataset/generated_queries_all.tsv
+```
 
+### Training the Model
+```bash
+  python finetune.py --data-path dataset/generated_queries_all.tsv \
+  --model-save-path models/<model_name> 
+```
 
+## Authors
 
+- [Ayush Agarwal](https://github.com/ayush9818)
