@@ -12,8 +12,9 @@ from sentence_transformers import SentenceTransformer, InputExample, losses, mod
 from torch import nn
 import torch 
 
-device=torch.device('cuda' if torch.cuda.is_available else 'cpu')
+## Use this script to finetune the distilbert model on custom datasets
 
+device=torch.device('cuda' if torch.cuda.is_available else 'cpu')
 word_emb = models.Transformer('sentence-transformers/msmarco-distilbert-base-dot-prod-v3')
 pooling = models.Pooling(word_emb.get_word_embedding_dimension())
 model = SentenceTransformer(modules=[word_emb, pooling])
@@ -23,6 +24,13 @@ BATCH_SIZE=16
 num_epochs = 1
 
 def get_dataloader(data_path):
+    """
+    Read and process the input data and create a pytorch dataloader to train the model
+    params:
+        data_path : tsv file containing the generated queries along with their corresponding documents
+    output:
+        train_dataloader : pytorch dataloader for finetuning the network
+    """
     train_examples = [] 
     with open(data_path) as fIn:
         for line in fIn:
@@ -39,6 +47,11 @@ def get_dataloader(data_path):
     return train_dataloader
 
 def main(data_path, save_path):
+    """
+    params:
+        data_path: tsv file containing the generated queries along with their corresponding documents
+        save_path : path to save the trained model
+    """
     train_dataloader = get_dataloader(data_path)
     train_loss = losses.MultipleNegativesRankingLoss(model)
     warmup_steps = int(len(train_dataloader) * num_epochs * 0.1)

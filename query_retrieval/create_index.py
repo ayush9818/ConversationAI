@@ -8,7 +8,15 @@ import sys
 import argparse
 import os
 
-def create_index(model, df, out_path): 
+def create_index(model, df, out_path):
+  """
+  params:
+    model : Bert model to create encodings
+    df : input text database csv
+    out_path : output path to save faiss indexed file
+  output:
+    index : faiss index 
+  """
   encoded_data = model.encode(df.Plot.tolist())
   encoded_data = np.asarray(encoded_data.astype('float32'))
   index = faiss.IndexIDMap(faiss.IndexFlatIP(768))
