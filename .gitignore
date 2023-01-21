@@ -5,8 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
-dataset/*
-models/*
+query_retrieval/dataset/*.index
+query_retrieval/dataset/*.tsv
+query_retrieval/models/search*
 venv
 # Distribution / packaging
 .Python
