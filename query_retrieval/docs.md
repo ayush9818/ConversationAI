@@ -1,9 +1,7 @@
 
-# ConversationAI
+# Query Retrieval Based Question Answering
 
 The bot is trained on a wikipedia datasets of movie plots. Given any query about the movie plot, the bot will run the search queries to match with the closest plot and return the movie Titles.
-
-![alt text](https://github.com/ayush9818/ConversationAI/blob/main/images/FlowChart.png)
 
 ## Installation
 
@@ -11,7 +9,7 @@ Repository Setup
 
 ```bash
   git clone https://github.com/ayush9818/ConversationAI.git
-  cd ConversationAI
+  cd ConversationAI/query_retrieval
 ```
 
 Download the model files in models directory and unzip the file
